@@ -1,0 +1,551 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+/* Poppins font */
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/extralight.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/semibold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/poppins/extrabold.ttf");
+  font-weight: 900;
+}
+/* End of the poppins font */
+
+/* Neo sans font */
+@font-face {
+  font-family: "Neo Sans";
+  src: url("../assets/fonts/neo-sans/light.otf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("../assets/fonts/neo-sans/regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("../assets/fonts/neo-sans/medium.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Neo Sans";
+  src: url("../assets/fonts/neo-sans/bold.otf");
+  font-weight: 700;
+}
+/* End of the Neo sans font */
+
+/* Start of the all colors */
+// Light colors
+$bodyBg: #fae7e9;
+$mainBg: #ffffff80;
+$title: #808080;
+$text: #999999;
+$border: #e5e5e5;
+$primary: #ce1127;
+$secondary: #f0b8be;
+
+// Dark colors
+$darkBodyBg: #110a08;
+$darkMainBg: #00000080;
+$darkTitle: #808080;
+$darkText: #7c7a79;
+$darkPrimary: #ce1127;
+$darkBorder: #141313;
+$darkInputBg: #0d0d0d;
+$darkGreen: #13b76a;
+/* End of the all colors */
+
+body {
+  font-family: "Poppins", "Neo Sans", Cairo, sans-serif;
+}
+
+body {
+  background-color: $bodyBg;
+  overflow-x: hidden;
+}
+
+/* Start of the scrollbar style */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $primary;
+}
+/* End of the scrollbar style */
+
+/* Start of the global styles */
+a,
+select,
+button,
+a,
+input,
+textarea {
+  outline: none;
+}
+/* End of the global styles */
+
+/* Start of the table styles */
+.vtl-loading-mask {
+  border-radius: 10px !important;
+}
+
+.vtl-empty-msg {
+  padding-block: 15px !important;
+  border-radius: 0 0 10px 10px !important;
+  font-weight: 500 !important;
+  color: $title !important;
+}
+
+.vtl-thead-th,
+.vtl-tbody-td,
+.vtl-empty-msg {
+  background-color: #fff !important;
+  border: 1.5px solid $border;
+  border-top: none !important;
+}
+
+.vtl.vtl-card {
+  background-color: transparent !important;
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .vtl-card-body {
+    overflow-x: auto !important;
+  }
+  .vtl-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    display: inline-table !important;
+    margin-bottom: 0 !important;
+    .vtl-thead-th {
+      font-weight: 500 !important;
+      color: $text !important;
+      &:nth-child(1) {
+        border-radius: 10px 0 0 0 !important;
+        border-inline-end: none !important;
+      }
+      &:last-child {
+        border-radius: 0 10px 0 0 !important;
+        border-inline-start: none !important;
+      }
+      &:not(:first-child):not(:last-child) {
+        border-inline: none !important;
+      }
+      border: 1.5px solid $border !important;
+      @media only screen and (max-width: 768px) {
+        min-width: 150px !important;
+      }
+    }
+    .vtl-thead-th,
+    .vtl-tbody-td {
+      padding-block: 15px !important;
+      white-space: nowrap !important;
+      @media only screen and (min-width: 992px) {
+        &:nth-child(1) {
+          padding-inline-start: 50px !important;
+        }
+      }
+    }
+    .vtl-tbody-tr {
+      .vtl-tbody-td {
+        font-size: 15px;
+        color: $title !important;
+        border-bottom: 1.5px solid $border !important;
+        border-inline: none !important;
+        &:first-child {
+          border-inline-start: 1.5px solid $border !important;
+        }
+        &:last-child {
+          border-inline-end: 1.5px solid $border !important;
+        }
+      }
+      &:last-of-type {
+        .vtl-tbody-td {
+          &:first-of-type {
+            border-radius: 0 0 0 10px !important;
+          }
+          &:last-of-type {
+            border-radius: 0 0 10px 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+/* End of the table styles */
+
+/* Start of the translate transition */
+.translate-enter-active,
+.translate-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+
+.translate-enter-from,
+.translate-leave-to {
+  transform: translateX(100%);
+}
+/* End of the translate transition */
+
+/* Start of the fade transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+/* End iof the fade transition */
+
+/* Start if the date picker components styles */
+.dp__outer_menu_wrap.dp--menu-wrapper {
+  width: 100%;
+}
+.dp__main {
+  height: 100%;
+}
+.dp__input {
+  background-color: transparent !important;
+  outline: none;
+  height: 50px;
+  border-radius: 0.75rem !important;
+  border-color: $border !important;
+}
+.error {
+  .dp__input {
+    border-color: $primary !important;
+    &::placeholder {
+      color: $primary !important;
+    }
+  }
+  .dp__icon.dp__input_icon.dp__input_icons {
+    color: $primary !important;
+  }
+}
+.dp__action_select,
+.dp__cell_inner.dp__pointer.dp__active_date {
+  background-color: $primary !important;
+}
+.dp__today {
+  border-color: $primary !important;
+}
+.dp__menu.dp__menu_index,
+.dp__input {
+  font: {
+    family: "Poppins", "Neo Sans", Cairo, sans-serif !important;
+    weight: 400 !important;
+  }
+}
+.dp__menu.dp__menu_index {
+  width: 100%;
+  .dp__action_row {
+    width: 100% !important;
+    justify-content: space-between;
+    .dp__action_buttons {
+      gap: 10px;
+      .dp__action_button {
+        min-height: 39px;
+        min-width: 75px;
+        border-radius: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+.dp__input {
+  font: {
+    weight: 300;
+  }
+  padding-block: 0.75rem;
+  border-radius: 0.125rem;
+  border-color: $border;
+}
+.dp__arrow_top {
+  display: none;
+}
+/* End of the date picker styles */
+
+/* Start of the quill editor styles */
+.ql-container {
+  height: 250px !important;
+}
+.ql-snow .ql-picker.ql-header {
+  width: fit-content !important;
+}
+.ql-toolbar.ql-snow {
+  background-color: transparent !important;
+  border-radius: 10px 10px 0 0;
+}
+.ql-container.ql-snow {
+  border-radius: 0px 0px 10px 10px;
+}
+.ql-snow {
+  border-color: $border !important;
+  .ql-stroke,
+  .ql-fill {
+    fill: transparent !important;
+    stroke: $text !important;
+  }
+  .ql-active {
+    .ql-stroke,
+    .ql-fill {
+      stroke: $primary !important;
+    }
+  }
+}
+.ql-toolbar.ql-snow .ql-formats {
+  margin-inline: 0 !important;
+}
+.ql-snow .ql-picker-label {
+  padding-right: 25px !important;
+}
+.ql-toolbar {
+  padding-block: 15px !important;
+}
+.ql-editor.ql-blank,
+.ql-editor {
+  font: {
+    size: 15px !important;
+    family: "Poppins", "Neo Sans", Cairo, sans-serif;
+  }
+  &:before {
+    color: $text;
+    font-style: normal !important;
+  }
+}
+.quill-error {
+  .ql-editor.ql-blank,
+  .ql-editor {
+    &:before {
+      color: $primary !important;
+    }
+  }
+  .ql-snow {
+    border-color: $primary !important;
+    .ql-stroke,
+    .ql-fill {
+      fill: transparent !important;
+      stroke: $primary !important;
+    }
+  }
+}
+/* End of the quill editor styles */
+
+/* Start of the dark styles */
+.dark {
+  body {
+    background-color: $darkBodyBg;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $darkPrimary;
+  }
+  .error {
+    .dp__input {
+      border-color: $darkPrimary !important;
+      &::placeholder {
+        color: $darkPrimary !important;
+      }
+    }
+    .dp__icon.dp__input_icon.dp__input_icons {
+      color: $darkPrimary !important;
+    }
+  }
+  .dp__action_select,
+  .dp__cell_inner.dp__pointer.dp__active_date {
+    background-color: $darkPrimary !important;
+  }
+  .dp__today {
+    border-color: $darkPrimary !important;
+  }
+  .dp__input {
+    border-color: $darkBorder;
+  }
+  .ql-snow {
+    border-color: $darkBorder !important;
+    .ql-stroke,
+    .ql-fill {
+      fill: transparent !important;
+      stroke: $text !important;
+    }
+    .ql-active {
+      .ql-stroke,
+      .ql-fill {
+        stroke: $darkPrimary !important;
+      }
+    }
+  }
+  .quill-error {
+    .ql-editor.ql-blank,
+    .ql-editor {
+      &:before {
+        color: $darkPrimary !important;
+      }
+    }
+    .ql-snow {
+      border-color: $darkPrimary !important;
+      .ql-stroke,
+      .ql-fill {
+        stroke: $darkPrimary !important;
+      }
+    }
+  }
+  .vtl.vtl-card {
+    .vtl-empty-msg {
+      background-color: #000 !important;
+      border-color: $darkBorder !important;
+    }
+    .vtl-table {
+      .vtl-thead-th,
+      .vtl-tbody-td {
+        background-color: #000 !important;
+      }
+      .vtl-thead-th {
+        color: $darkText !important;
+        border-color: $darkBorder !important;
+      }
+      .vtl-tbody-tr {
+        .vtl-tbody-td {
+          color: $darkTitle !important;
+          border-bottom: 1.5px solid $darkBorder !important;
+          border-inline: none !important;
+          &:first-child {
+            border-inline-start-color: $darkBorder !important;
+          }
+          &:last-child {
+            border-inline-end-color: $darkBorder !important;
+          }
+        }
+      }
+    }
+  }
+  .ql-container {
+    color: #fff !important;
+  }
+}
+/* End of the dark styles */
+
+/* Apexchart style */
+.apexcharts-legend-series {
+  display: flex !important;
+  gap: 10px !important;
+}
+/* End of the apexchart styles */
+
+/* Start of the pagination styles */
+div[dir="rtl"] {
+  .Pagination {
+    .PaginationControl {
+      .Control {
+        transform: rotate(180deg) !important;
+      }
+    }
+  }
+}
+.Pagination {
+  justify-content: center;
+  .PaginationControl {
+    .Control {
+      fill: #e8e8e8 !important;
+      cursor: not-allowed !important;
+      &.Control-active {
+        fill: $text !important;
+        cursor: pointer !important;
+        &:hover {
+          fill: $primary !important;
+        }
+      }
+    }
+  }
+  .Page {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    font: {
+      family: "Work Sans", sans-serif;
+      size: 16px;
+      weight: 600;
+    }
+    &:hover,
+    &.Page-active {
+      background-color: $primary !important;
+      color: #fff !important;
+      border: none !important;
+    }
+  }
+}
+/* End of the pagination styles */
+
+/* Start of the arabic styles */
+body {
+  [dir="rtl"] {
+    .vtl.vtl-card {
+      .vtl-thead-th {
+        &:nth-child(1) {
+          border-radius: 0 10px 0 0 !important;
+          border-inline-end: none !important;
+        }
+        &:last-child {
+          border-radius: 10px 0 0 0 !important;
+          border-inline-start: none !important;
+        }
+      }
+      .vtl-tbody-tr {
+        &:last-of-type {
+          .vtl-tbody-td {
+            &:first-of-type {
+              border-radius: 0 0 10px 0 !important;
+            }
+            &:last-of-type {
+              border-radius: 0 0 0 10px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* End of the arabic styles */
